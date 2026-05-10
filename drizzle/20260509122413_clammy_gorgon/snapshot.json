@@ -1,0 +1,150 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "id": "e7eac4bc-e138-4d43-a8c5-3bc9c665a5f0",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "ddl": [
+    {
+      "name": "guesses",
+      "entityType": "tables"
+    },
+    {
+      "type": "integer",
+      "notNull": false,
+      "autoincrement": true,
+      "default": null,
+      "generated": null,
+      "name": "id",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "session_id",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "politician_id",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "actual_party",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "text",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "guessed_party",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "correct",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "type": "integer",
+      "notNull": true,
+      "autoincrement": false,
+      "default": null,
+      "generated": null,
+      "name": "created_at",
+      "entityType": "columns",
+      "table": "guesses"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "name": "guesses_pk",
+      "table": "guesses",
+      "entityType": "pks"
+    },
+    {
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "guesses_created_at_idx",
+      "entityType": "indexes",
+      "table": "guesses"
+    },
+    {
+      "columns": [
+        {
+          "value": "session_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "guesses_session_id_idx",
+      "entityType": "indexes",
+      "table": "guesses"
+    },
+    {
+      "columns": [
+        {
+          "value": "actual_party",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "guesses_actual_party_idx",
+      "entityType": "indexes",
+      "table": "guesses"
+    },
+    {
+      "columns": [
+        {
+          "value": "politician_id",
+          "isExpression": false
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "origin": "manual",
+      "name": "guesses_politician_id_idx",
+      "entityType": "indexes",
+      "table": "guesses"
+    }
+  ],
+  "renames": []
+}
