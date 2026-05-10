@@ -184,10 +184,12 @@
 	});
 </script>
 
-<div class="min-h-screen w-full mt-16 flex flex-col gap-32">
+<div
+	class="min-h-screen w-full mt-8 md:mt-16 flex flex-col gap-16 md:gap-32"
+>
 	<section class="flex flex-col gap-8">
 		<div class="flex flex-col">
-			<h1 class="text-4xl font-semibold">Statistikk</h1>
+			<h1 class="text-3xl sm:text-4xl font-semibold">Statistikk</h1>
 			<span class="text-sm text-muted-foreground">
 				Vi har samlet over <span class="font-medium"
 					>{count(statistics.total_guesses)}</span
@@ -197,9 +199,9 @@
 		</div>
 	</section>
 
-	<section class="flex flex-col gap-8">
+	<section class="flex flex-col gap-6 sm:gap-8">
 		<div class="flex flex-col">
-			<h2 class="text-3xl font-semibold">De ulike partiene</h2>
+			<h2 class="text-2xl sm:text-3xl font-semibold">De ulike partiene</h2>
 			<span class="text-sm text-muted-foreground">
 				Det finnes <span class="font-medium">{party_tags.length}</span> partier
 				i Stortinget for perioden 2025-2029. Her er hvordan de har klart
@@ -209,17 +211,22 @@
 
 		<Table.Root class="table-fixed">
 			<colgroup>
-				<col class="w-56" />
+				<col class="w-40 sm:w-56" />
 				<col />
-				<col class="w-28" />
-				<col class="w-36" />
+				<col class="hidden sm:table-column sm:w-28" />
+				<col class="w-20 sm:w-36" />
 			</colgroup>
 			<Table.Header>
 				<Table.Row>
 					<Table.Head>Parti</Table.Head>
 					<Table.Head>Resultat</Table.Head>
-					<Table.Head class="text-right">Gjetninger</Table.Head>
-					<Table.Head class="text-right">Nøyaktighet %</Table.Head>
+					<Table.Head class="hidden sm:table-cell text-right"
+						>Gjetninger</Table.Head
+					>
+					<Table.Head class="text-right">
+						<span class="hidden sm:inline">Nøyaktighet %</span>
+						<span class="sm:hidden">%</span>
+					</Table.Head>
 				</Table.Row>
 			</Table.Header>
 			<Table.Body>
@@ -249,7 +256,7 @@
 							/>
 						</Table.Cell>
 						<Table.Cell
-							class="text-right text-muted-foreground tabular-nums"
+							class="hidden sm:table-cell text-right text-muted-foreground tabular-nums"
 						>
 							{count(row.total)}
 						</Table.Cell>
@@ -264,9 +271,11 @@
 		</Table.Root>
 	</section>
 
-	<section class="flex flex-col gap-8">
+	<section class="flex flex-col gap-6 sm:gap-8">
 		<div class="flex flex-col">
-			<h1 class="text-4xl font-semibold">De ulike politikerne</h1>
+			<h1 class="text-3xl sm:text-4xl font-semibold">
+				De ulike politikerne
+			</h1>
 			<span class="text-sm text-muted-foreground">
 				Det finnes <span class="font-medium"
 					>{PoliticianIds.length}</span
@@ -337,8 +346,8 @@
 		<Tooltip.Provider>
 			<Table.Root class="table-fixed">
 				<colgroup>
-					<col class="w-[42%]" />
-					<col class="w-[24%]" />
+					<col class="w-[55%] sm:w-[42%]" />
+					<col class="hidden sm:table-column sm:w-[24%]" />
 					<col />
 				</colgroup>
 				<Table.Header>
@@ -349,6 +358,9 @@
 									class={[
 										header.column.id === "accuracy"
 											? "text-right"
+											: "",
+										header.column.id === "party_name"
+											? "hidden sm:table-cell"
 											: "",
 									]}
 								>
@@ -411,7 +423,7 @@
 									</div>
 								</div>
 							</Table.Cell>
-							<Table.Cell class="min-w-0">
+							<Table.Cell class="hidden sm:table-cell min-w-0">
 								<div class="flex min-w-0 items-center gap-2">
 									<span
 										class="flex size-7 shrink-0 items-center justify-center rounded-sm inset-shadow bg-(--party-background) p-1.5"
@@ -475,14 +487,14 @@
 		</Tooltip.Provider>
 
 		<div
-			class="flex items-center justify-between gap-3 text-sm text-muted-foreground"
+			class="flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
 		>
 			<span>
 				Viser {politicians_table.getRowModel().rows.length} av {politicians_table.getFilteredRowModel()
 					.rows.length}
 				politikere
 			</span>
-			<div class="flex items-center gap-2">
+			<div class="flex items-center justify-between gap-2 sm:justify-end">
 				<Button
 					variant="outline"
 					size="sm"

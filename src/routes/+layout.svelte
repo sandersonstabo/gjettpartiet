@@ -22,11 +22,16 @@
 	<ModeWatcher />
 
 	<!-- structure -->
-	<div class="mx-auto grid min-h-screen max-w-4xl grid-rows-[auto_1fr] p-16">
-		<header class="flex items-center justify-between">
-			<a href="/" class="flex items-center gap-2 text-xl font-semibold">
+	<div
+		class="mx-auto grid min-h-screen max-w-4xl grid-rows-[auto_1fr] gap-8 p-4 sm:p-8 md:p-16"
+	>
+		<header class="flex flex-wrap items-center justify-between gap-3">
+			<a
+				href="/"
+				class="flex items-center gap-2 text-lg font-semibold sm:text-xl"
+			>
 				Guess the Party
-				<Norway class="size-6" />
+				<Norway class="size-5 sm:size-6" />
 			</a>
 
 			<div class="flex items-center gap-2">
@@ -42,13 +47,15 @@
 			</div>
 		</header>
 
-		<main class="grid place-items-center">
+		<main class="flex w-full flex-col items-stretch justify-center">
 			{@render children?.()}
 		</main>
 	</div>
 
-	<footer class="mx-auto border-t bg-card w-full p-8">
-		<div class="flex flex-row justify-between items-end max-w-5xl mx-auto">
+	<footer class="mx-auto border-t bg-card w-full px-4 py-6 sm:px-8 md:px-16">
+		<div
+			class="flex flex-row flex-wrap justify-between items-end gap-6 max-w-4xl mx-auto"
+		>
 			<div class="flex flex-col gap-4">
 				<span class="text-4xl font-heading text-muted-foreground"
 					>ss</span

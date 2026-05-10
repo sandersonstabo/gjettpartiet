@@ -132,9 +132,9 @@
 {#if politician}
     {@const data = Parties[politician.party]}
 
-    <div class="flex flex-col gap-8">
-        <div class="flex flex-row justify-between items-center">
-            <div class="flex flex-col -space-y-1">
+    <div class="flex flex-col gap-6 w-full sm:gap-8">
+        <div class="flex flex-row justify-between items-center gap-3">
+            <div class="flex flex-col -space-y-1 min-w-0">
                 <span class="text-sm font-medium"
                     >Kjenner du virkelig til stortinget?</span
                 >
@@ -146,7 +146,7 @@
             {#key streak_animation_key}
                 <div
                     class={[
-                        "flex flex-row items-center gap-2 rounded-3xl p-4 bg-linear-to-t inset-shadow transition-colors duration-200",
+                        "flex shrink-0 flex-row items-center gap-2 rounded-3xl p-3 sm:p-4 bg-linear-to-t inset-shadow transition-colors duration-200",
                         streak_breaking
                             ? "streak-die from-red-800 to-red-500 text-red-100"
                             : streak > 0
@@ -160,8 +160,10 @@
                 </div>
             {/key}
         </div>
-        <div class="flex flex-row gap-8">
-            <div class="relative rounded-xl overflow-hidden">
+        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 sm:items-stretch">
+            <div
+                class="relative rounded-xl overflow-hidden w-full sm:w-auto sm:flex-shrink-0"
+            >
                 <!-- blur -->
                 <div
                     class="absolute bottom-0 h-[50%] w-full backdrop-blur-lg"
@@ -169,7 +171,7 @@
                 <img
                     src={politician.image}
                     alt={`${politician.first_name} ${politician.last_name}`}
-                    class="h-full aspect-square object-cover"
+                    class="aspect-square w-full sm:h-full sm:w-auto object-cover"
                 />
                 <!-- info quip -->
                 <div class="absolute bottom-2 right-4 z-50">
@@ -194,7 +196,9 @@
                     ]}
                 ></div>
             </div>
-            <section class="flex w-max max-w-64 flex-col gap-4 justify-between">
+            <section
+                class="flex w-full sm:w-max sm:max-w-64 flex-col gap-4 justify-between"
+            >
                 <span
                     class="text-wrap text-center text-sm text-muted-foreground"
                 >
@@ -217,19 +221,25 @@
 
         <div
             class={[
-                "p-4 rounded-3xl flex flex-row justify-between items-center inset-shadow transition-opacity bg-(--party-background) text-(--party-text)",
+                "p-4 rounded-3xl flex flex-row justify-between items-center gap-3 inset-shadow transition-opacity bg-(--party-background) text-(--party-text)",
                 !guessed && "invisible opacity-0",
             ]}
             style={`--party-background: ${data.colors.background}; --party-text: ${data.colors.text};`}
             aria-hidden={!guessed}
         >
-            <section class="flex flex-row gap-2 justify-between items-center">
-                <img src={data.image} alt={data.name} class="w-6" />
-                <div class="flex flex-col -space-y-1">
-                    <span class="text-xl font-semibold"
+            <section
+                class="flex flex-row gap-2 items-center min-w-0 flex-1"
+            >
+                <img
+                    src={data.image}
+                    alt={data.name}
+                    class="w-6 shrink-0"
+                />
+                <div class="flex flex-col -space-y-1 min-w-0">
+                    <span class="text-base sm:text-xl font-semibold truncate"
                         >{politician_name()}</span
                     >
-                    <span class="text-sm opacity-50"
+                    <span class="text-xs sm:text-sm opacity-50 truncate"
                         >{politician_context()}</span
                     >
                 </div>
@@ -237,7 +247,7 @@
             <Button
                 size="icon"
                 variant="ghost"
-                class="text-(--party-text) hover:bg-(--party-text)/25 hover:text-(--party-text)!"
+                class="shrink-0 text-(--party-text) hover:bg-(--party-text)/25 hover:text-(--party-text)!"
                 onclick={() => Effect.runFork(reset())}
             >
                 <CloseX />
