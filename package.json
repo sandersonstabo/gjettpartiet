@@ -22,7 +22,7 @@
     "drizzle-orm": "^1.0.0-beta.22",
     "effect": "^4.0.0-beta.64",
     "mode-watcher": "^1.1.0",
-    "svelte-effect-runtime": "file:../svelte-effect-runtime/modules/svelte-effect-runtime"
+    "svelte-effect-runtime": "^1.4.1"
   },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.2.8",
