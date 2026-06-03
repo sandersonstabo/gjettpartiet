@@ -64,11 +64,6 @@
 				<div
 					class="flex flex-row items-center gap-2 text-muted-foreground"
 				>
-					<a href="https://x.com/sowilosowilo" rel="" target="_blank">
-						<SvglXformerlyTwitterLogo
-							class="size-4 **:fill-current **:stroke-current text-muted-foreground hover:text-foreground"
-						/>
-					</a>
 					<a href="https://github.com/sandersonstabo" target="_blank">
 						<SvglGitHubLogo
 							class="size-4 **:fill-current **:stroke-current text-muted-foreground hover:text-foreground"
